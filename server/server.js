@@ -20,7 +20,8 @@ app.use(bodyParser.json())
 IMPORTAMOS LAS RUTAS
 =============================================*/
 
-app.use(require('./rutas/usuario'));
+app.use(require('./rutas/index'));
+
 
 
 
