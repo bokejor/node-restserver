@@ -2,11 +2,9 @@ require('./config/config');
 
 const express = require('express');
 const mongoose = require('mongoose');
+const path = require('path');
 
 const app = express();
-
-
-
 
 const bodyParser = require('body-parser');
 
@@ -21,6 +19,12 @@ IMPORTAMOS LAS RUTAS
 =============================================*/
 
 app.use(require('./rutas/index'));
+
+/*=============================================
+HABILITAR LA CARPETA PUBLIC
+=============================================*/
+
+app.use(express.static(path.resolve(__dirname, '../public')));
 
 
 
