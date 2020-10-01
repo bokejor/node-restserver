@@ -33,4 +33,4 @@ process.env.CADUCIDAD = 60 * 60 * 24 * 30;
 //  Client ID google
 // ============================
 
-process.env.CLIENT_ID = process.env.CLIENT_ID || "710776103623-6c5oj9p2n53qnqqkf7vf6uh8i2cbdr1c.apps.googleusercontent.com";
+process.env.CLIENT_ID = process.env.CLIENT_ID || "710776103623-74vm8uf2c87f9agn77mlnoknvbkbn9qv.apps.googleusercontent.com";
