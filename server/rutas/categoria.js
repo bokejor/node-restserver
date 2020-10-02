@@ -4,7 +4,7 @@ const app = express();
 /*=============================================
 IMPORTACIÓN DEL CONTROLADOR
 =============================================*/
-const Usuario = require('../controladores/usuario.controlador');
+const Categoria = require('../controladores/categoria.controlador');
 
 /*=============================================
 IMPORTACIÓN DEL MIDDLEWARE
@@ -16,10 +16,11 @@ const { verificaToken, verificaAdminRol } = require('../middlewares/autenticacio
 RUTAS HTTP
 =============================================*/
 
-app.get('/usuario', verificaToken, Usuario.mostrarUsuarios);
-app.post('/usuario', [verificaToken, verificaAdminRol], Usuario.crearUsuario);
-app.put('/usuario/:id', [verificaToken, verificaAdminRol], Usuario.actualizarUsuario);
-app.delete('/usuario/:id', [verificaToken, verificaAdminRol], Usuario.borrarUsuario);
+app.get('/categoria', verificaToken, Categoria.mostrarCategorias);
+app.get('/categoria/:id', verificaToken, Categoria.mostrarCategoria);
+app.post('/categoria', verificaToken, Categoria.crearCategoria);
+app.put('/categoria/:id', verificaToken, Categoria.actualizarCategoria);
+app.delete('/categoria/:id', [verificaToken, verificaAdminRol], Categoria.borrarCategoria);
 
 /*=============================================
 EXPORTAMOS LA RUTA

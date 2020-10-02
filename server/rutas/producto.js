@@ -4,22 +4,24 @@ const app = express();
 /*=============================================
 IMPORTACIÓN DEL CONTROLADOR
 =============================================*/
-const Usuario = require('../controladores/usuario.controlador');
+const Producto = require('../controladores/producto.controlador');
 
 /*=============================================
 IMPORTACIÓN DEL MIDDLEWARE
 =============================================*/
 
-const { verificaToken, verificaAdminRol } = require('../middlewares/autenticacion');
+const { verificaToken } = require('../middlewares/autenticacion');
 
 /*=============================================
 RUTAS HTTP
 =============================================*/
 
-app.get('/usuario', verificaToken, Usuario.mostrarUsuarios);
-app.post('/usuario', [verificaToken, verificaAdminRol], Usuario.crearUsuario);
-app.put('/usuario/:id', [verificaToken, verificaAdminRol], Usuario.actualizarUsuario);
-app.delete('/usuario/:id', [verificaToken, verificaAdminRol], Usuario.borrarUsuario);
+app.get('/producto', verificaToken, Producto.mostrarProductos);
+app.get('/producto/:id', verificaToken, Producto.mostrarProducto);
+app.get('/producto/buscar/:termino', verificaToken, Producto.buscarProducto);
+app.post('/producto', verificaToken, Producto.crearProducto);
+app.put('/producto/:id', verificaToken, Producto.actualizarProducto);
+app.delete('/producto/:id', verificaToken, Producto.borrarProducto);
 
 /*=============================================
 EXPORTAMOS LA RUTA
