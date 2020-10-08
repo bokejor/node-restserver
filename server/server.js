@@ -3,10 +3,10 @@ require('./config/config');
 const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
+const bodyParser = require('body-parser');
+const fileUpload = require('express-fileupload');
 
 const app = express();
-
-const bodyParser = require('body-parser');
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -26,7 +26,11 @@ HABILITAR LA CARPETA PUBLIC
 
 app.use(express.static(path.resolve(__dirname, '../public')));
 
+/*=============================================
+MIDDLEWARE PARA LA SUBIDA DE ARCHIVOS
+=============================================*/
 
+app.use(fileUpload({ useTempFiles: true }));
 
 
 mongoose.connect(process.env.URLDB, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true }, (err, res) => {
